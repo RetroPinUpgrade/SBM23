@@ -46,4 +46,7 @@ Settings & Audits (page number shown in Ball in Play, Credits is blank)
 25 - Extra Ball Award (for tournament scoring)  
 26 - Special Award (for tournament scoring)  
 27 - Dim level  
+  
+## Example Sound Files  
+https://drive.google.com/file/d/1xsmqtWZP9hqvHiajO6iWM1bCcZa6pH1e/view?usp=sharing  
 
