@@ -1045,7 +1045,7 @@ int RunSelfTest(int curState, boolean curStateChanged) {
 
   // Any state that's greater than CHUTE_3 is handled by the Base Self-test code
   // Any that's less, is machine specific, so we handle it here.
-  if (curState >= MACHINE_STATE_TEST_CHUTE_3_COINS) {
+  if (curState >= MACHINE_STATE_TEST_DONE) {
     returnState = RunBaseSelfTest(returnState, curStateChanged, CurrentTime, SW_CREDIT_RESET, SW_SLAM);
   } else {
     byte curSwitch = RPU_PullFirstFromSwitchStack();
