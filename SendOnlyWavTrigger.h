@@ -37,7 +37,11 @@
 
 
 #include <HardwareSerial.h>
+#if (RPU_OS_HARDWARE_REV<=3)
 #define WTSerial Serial
+#else
+#define WTSerial Serial1
+#endif
 
 class SendOnlyWavTrigger
 {
