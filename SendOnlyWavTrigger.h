@@ -1,4 +1,4 @@
- 
+#include "RPU_config.h" 
 #define CMD_GET_VERSION					1
 #define CMD_GET_SYS_INFO				2
 #define CMD_TRACK_CONTROL				3
@@ -37,6 +37,10 @@
 
 
 #include <HardwareSerial.h>
+#ifndef RPU_OS_HARDWARE_REV
+#error "Error: SendOnlyWavTrigger needs RPU_config to make determination about default port"
+#endif
+
 #if (RPU_OS_HARDWARE_REV<=3)
 #define WTSerial Serial
 #else

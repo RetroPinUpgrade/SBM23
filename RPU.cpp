@@ -2735,8 +2735,13 @@ void InterruptService3() {
     RPU_DataWrite(ADDRESS_U10_B_CONTROL, RPU_DataRead(ADDRESS_U10_B_CONTROL) | 0x08);
     RPU_DataWrite(ADDRESS_U10_B_CONTROL, RPU_DataRead(ADDRESS_U10_B_CONTROL) & 0xF7);
 
-    for (int lampByteCount=8; lampByteCount<RPU_NUM_LAMP_BANKS; lampByteCount++) {
+    // For the first four bits of lamps, we're going to look at LampStates[7] again
+    // and use those top 4 bits that we didn't use before. Then we're going
+    // to move on with bytes 8, 9, and 10 for the remaining 24 bits of data
+    byte auxBankNum = 0;
+    for (int lampByteCount=7; lampByteCount<RPU_NUM_LAMP_BANKS; lampByteCount++) {
       for (byte nibbleCount=0; nibbleCount<2; nibbleCount++) {
+        if (lampByteCount==7) nibbleCount = 1; // skip the first nibble of byte 7 because it belongs to primary lamps
         byte nibbleOffset = (nibbleCount)?1:16;
         byte lampOutput = (LampStates[lampByteCount] * nibbleOffset);
         // Every other time through the cycle, we OR in the dim variable
@@ -2746,7 +2751,7 @@ void InterruptService3() {
 
         // The data will be in the upper nibble, but we need the bank count in the lower
         lampOutput &= 0xF0;
-        lampOutput += ((lampByteCount-8)*2+nibbleOffset);
+        lampOutput += auxBankNum;
 
         interrupts();
         RPU_DataWrite(ADDRESS_U10_A, 0xFF);
@@ -2756,6 +2761,8 @@ void InterruptService3() {
         RPU_DataWrite(ADDRESS_U11_A_CONTROL, RPU_DataRead(ADDRESS_U11_A_CONTROL) | 0x08);
         RPU_DataWrite(ADDRESS_U11_A_CONTROL, RPU_DataRead(ADDRESS_U11_A_CONTROL) & 0xF7);    
         RPU_DataWrite(ADDRESS_U10_A, lampOutput);
+        
+        auxBankNum += 1;
       }
     }
 #endif    
@@ -3449,9 +3456,9 @@ unsigned long RPU_InitializeMPUArch10(unsigned long initOptions, byte creditRese
   boolean bootToOriginal = false;
 
   if (  (initOptions & RPU_CMD_BOOT_ORIGINAL) ||
-        (switchStateClosed && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_SWITCH_CLOSED)) ||
-        (!switchStateClosed && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_NOT_SWITCH_CLOSED)) ||
-        (creditResetButtonHit && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_CREDIT_RESET)) ||
+        (switchStateClosed && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_SWITCH_CLOSED))  ||
+        (!switchStateClosed && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_NOT_SWITCH_CLOSED))  ||
+        (creditResetButtonHit && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_CREDIT_RESET))  ||
         (!creditResetButtonHit && (initOptions&RPU_CMD_BOOT_ORIGINAL_IF_NOT_CREDIT_RESET)) ) {
     bootToOriginal = true;
   }
