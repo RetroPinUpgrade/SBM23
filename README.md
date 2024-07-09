@@ -50,3 +50,35 @@ Settings & Audits (page number shown in Ball in Play, Credits is blank)
 ## Example Sound Files  
 https://drive.google.com/file/d/1xsmqtWZP9hqvHiajO6iWM1bCcZa6pH1e/view?usp=sharing  
 
+
+## Game Play
+### Skill Shot
+At the start of each ball, there are four skill shots available:  
+1) Left & Right Top Lanes - hitting either the left or right top lane when the lamp is lit will spot the player one “Silverball Mania“ letter. The 50 pt switches change which lane is lit.  
+2) Middle Top Lane - hitting the middle top lane when the lamp is lit will spot the player one “Silverball Mania” letter, award the player 5,000 points, and activate the ball kicker for 15 seconds.  
+3) Horseshoe Rollover - hitting the center horseshoe rollover will award the player 20,000 points, turn on the ball kicker for 2 seconds, and qualify the super skill shot.
+Super skill shot - if the Horseshoe Rollover skill shot is hit, the player can then hit the Center Target (“N” target) for an additional 15,000 points as a super skill shot.  
+Any switch hit aside from those listed above (and the right spinner) will exit the Skill Shot mode and drop the player into normal play.
+  
+### Normal Play  
+During the course of normal play there are three main objectives to Silverball Mania.  
+1) Collecting the “Silverball Mania” lamps.  
+2) Advancing the Bonus Multiplier  
+3) Collecting the Combo Awards for 15,000, 30,000, and 60,000 points
+
+#### Collecting “Silverball Mania” Lamps  
+At the start of the first ball, after the Skill Shot mode is exited, all the Silverball Mania targets on the playfield will be lit. Hitting a target will turn off the lamp at the target and light the corresponding lamp in the middle of the playfield. Those letters collected will be rewarded 1,000 bonus points at the end of the ball (multiplied by the bonus multiplier).  
+To collect the lamps a second time, the player has to collect them in groups. At first, “Silver” will be lit. Once those letters are collected, “Ball” will light. Finally, the player will need to collect the “Mania” lamps.  
+The third and subsequent times the player collects the lamps, they will need to be collected in order. If a player hits a letter out of order (for example, the L before the S), the letters before that letter will have to be collected within 20 seconds or the out-of-order letter will be forfeited.  
+For the first and second set of letters, collecting the M or the A on the out lanes will turn on the ball kicker for 5 seconds. For the first five sets of letters, the 50 point switches will rotate the MANIA letters so they can be collected without losing the ball.  
+#### Advancing the Bonus Multiplier  
+The bonus multiplier can be advanced by completing the top lanes, or completing a combo shot of the horseshoe and N center target.  
+If the left or right top lanes are completed, the lamps associated with those lanes will indicate which lane is completed (they use the same lamp circuit, so they can’t be controlled individually). If the left lane is hit, the lane lamps will blink once slowly. If the right lane is hit, the lamps will blink twice and then pause. If the left and right lamps are steady, those lanes are complete. The center lane lamp will show solid when that lane has been completed. Completing all three lamps advances to 2x, 3x, 4x, and 5x bonus multiplier.  
+Another method of increasing the bonus multiplier is to complete a combo of the horseshoe and then the center N target. As the bonus multiplier gets higher, the combo will have to be done in a shorter time period.  
+#### Collecting Combo Awards  
+When the ball travels through either in lane, the opposite spinner will flash to start a combo. After that spinner is hit, the other spinner will light for 10 seconds to advance the combo. When the alternating spinners have been satisfied, the lights will sweep in a circle to guide the player to hit the horseshoe to continue the combo. After the horseshoe is completed, the player has 20 seconds to finish the combo by allowing the ball to drop into the ball kicker.  
+The first combo award is worth 15,000, then 30,000 and 60,000. The award is given at the time the ball kicker is hit, as well as a bonus at the end of the ball.  
+#### Random Letter Combo  
+During play, the SILVERBALL lamps on the head of the machine will cycle rapidly. When the horseshoe is hit, the cycle will stop, lighting a combo on one of the SILVERBALL stand up targets. The target will be lit (flashing) for 15 seconds. If this target is the first SILVERBALL MANIA target/rollover hit during the 15 seconds, the player will be awarded 15,000 points and advance the Bonus Multiplier.  
+
+  
