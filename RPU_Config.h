@@ -48,7 +48,7 @@
 // but in other cases we can specify if we're building for a 6800.
 // Define RPU_MPU_BUILD_FOR_6800 with a 0 for 6802 or 6808, and with
 // a 1 for 6800
-#define RPU_MPU_BUILD_FOR_6800  0
+#define RPU_MPU_BUILD_FOR_6800  1
 
 // These defines allow this configuration to eliminate some functions
 // to reduce program size
