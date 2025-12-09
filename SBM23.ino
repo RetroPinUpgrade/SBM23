@@ -159,7 +159,7 @@ boolean MachineStateChanged = true;
 #define MAX_DISPLAY_BONUS               55
 #define TILT_WARNING_DEBOUNCE_TIME      1000
 
-#if defined(RPU_OS_USE_WAV_TRIGGER) || defined(RPU_OS_USE_WAV_TRIGGER_1p3)
+#if defined(RPU_OS_USE_WAV_TRIGGER) || defined(RPU_OS_USE_WAV_TRIGGER_1p3) || defined(RPU_OS_USE_DASH51)
 int SoundEffectsNormalVolume = -4;
 int SongDuckedVolume = -20;
 
@@ -1074,7 +1074,9 @@ int RunSelfTest(int curState, boolean curStateChanged) {
       AdjustmentValues[0] = 0;
       AdjustmentValues[1] = 1;
       TempValue = 0;
+#if defined(RPU_OS_USE_WAV_TRIGGER) || defined(RPU_OS_USE_WAV_TRIGGER_1p3)      
       PlaySoundEffect((int)SOUND_EFFECT_AP_PROMPT_START + ((int)MACHINE_STATE_ADJUST_FREEPLAY - curState));
+#endif
 
       switch (curState) {
         case MACHINE_STATE_ADJUST_FREEPLAY:
@@ -1589,7 +1591,7 @@ inline void StopSoundEffect(byte soundEffectNum) {
 }
 
 
-#if defined(RPU_OS_USE_WAV_TRIGGER) || defined(RPU_OS_USE_WAV_TRIGGER_1p3)
+#if defined(RPU_OS_USE_WAV_TRIGGER) || defined(RPU_OS_USE_WAV_TRIGGER_1p3) || defined(RPU_OS_USE_DASH51)
 
 void PlaySoundEffect(byte soundEffectNum, int gain) {
 
@@ -1597,18 +1599,24 @@ void PlaySoundEffect(byte soundEffectNum, int gain) {
   if (MusicLevel < 3) {
 #ifdef RPU_OS_USE_DASH51
     PlaySoundEffect51(soundEffectNum);
+    (void)gain;
 #endif
     return;
   }
 
-#ifndef RPU_OS_USE_WAV_TRIGGER_1p3
-  if (  soundEffectNum == SOUND_EFFECT_THUMPER_BUMPER_HIT ||
-        SOUND_EFFECT_SPINNER ) wTrig.trackStop(soundEffectNum);
+#if defined(RPU_OS_USE_WAV_TRIGGER) || defined(RPU_OS_USE_WAV_TRIGGER_1p3)
+#if !defined(RPU_OS_USE_WAV_TRIGGER_1p3) && defined(RPU_OS_USE_WAV_TRIGGER)
+  if (  soundEffectNum == SOUND_EFFECT_SPINNER_LOW ||
+        SOUND_EFFECT_SPINNER_HIGH ) wTrig.trackStop(soundEffectNum);
 #endif
   if (gain == 100) gain = SoundEffectsNormalVolume;
   wTrig.trackPlayPoly(soundEffectNum);
   wTrig.trackGain(soundEffectNum, gain);
+#endif
+  
 }
+
+
 #endif
 
 
@@ -1701,6 +1709,15 @@ void ServiceNotificationQueue() {
     }
   }
 
+}
+
+#else
+void QueueNotification(unsigned int soundEffectNum, byte priority) {
+  (void)soundEffectNum;
+  (void)priority;
+}
+
+void ServiceNotificationQueue() {
 }
 
 #endif
