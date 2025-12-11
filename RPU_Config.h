@@ -67,6 +67,8 @@
 //#define RPU_OS_USE_WTYPE_1_SOUND
 //#define RPU_OS_USE_WTYPE_2_SOUND
 //#define RPU_OS_USE_W11_SOUND
+//#define RPU_SIMPLIFY_DISPLAY_FOR_7VOLUTION
+//#define RPU_NATIVE_7VOLUTION_SUPPORT
 
 
 
@@ -92,7 +94,7 @@
 //  40            381 Hz
 //  35            434 Hz     (This would probably be good for 7-digit displays)
 //  34            446.4 Hz      
-#define RPU_OS_SOFTWARE_DISPLAY_INTERRUPT_INTERVAL  35  
+#define RPU_OS_SOFTWARE_DISPLAY_INTERRUPT_INTERVAL  46  
 //#define RPU_OS_ADJUSTABLE_DISPLAY_INTERRUPT
 
 #ifdef RPU_OS_USE_6_DIGIT_CREDIT_DISPLAY_WITH_7_DIGIT_DISPLAYS
