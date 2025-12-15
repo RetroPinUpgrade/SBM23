@@ -36,12 +36,14 @@ Settings & Audits (page number shown in Ball in Play, Credits is blank)
 15 - Coins per Credit for Chute 3  
 16 - Free Play  
 17 - Ball Save  
-18 - Sound Selector  
+18 - Sound Selector    
+  
     0 = no sounds  
     1 = sound effects through -51  
     2 = sound effects & background drone through -51  
     3 = sound effects through WAV Trigger  
     4 = sound effects & background song through WAV Trigger  
+      
 19 - Music Volume  
 20 - Tournament Scoring  
 21 - Tilt Warnings  
